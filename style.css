@@ -585,8 +585,8 @@ button[type="submit"]:hover, #back-btn:hover {
     font-size: 1.1rem;  /* slightly bigger text */
   }
 
-  form {
-    gap: 20px;
+  #ticket-form {
+    margin-top: -10px;
   }
  #ticket-preview-section{
     height: 80vh;
@@ -668,10 +668,15 @@ button[type="submit"]:hover, #back-btn:hover {
     padding: 40px;          /* generous spacing */
     margin-top: 40px;
   }
-
+ input[type="file"] {
+  width: 96%;
+  min-height: 96px;
+ }
 #content{
-  margin-top: 60px;
+  margin-top: 30px;
    height: 125vh;
+  
+
 }
   input[type="file"] {
   width: 96%;

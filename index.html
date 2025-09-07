@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main>
+    <!-- Ticket Form Section -->
+    <section id="ticket-form-section" >
+      <picture id="top-invisible-line"></picture> <!-- tiny almost invisible top pattern line -->
+      <header><span id="logo-mark"></span> <p>Coding Conf</p><span id="top-line"></span></header> <!--container for top heading-->
+      <div id="content"  > <!-- main content-->
+      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p>Secure your spot at next year's biggest coding conference.</p>
+      <form id="ticket-form" enctype="multipart/form-data" novalidate> <!-- form declaration-->
+        <div class="form-group">
+          <label for="avatar">Upload Avatar</label>
+          <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" > <!-- main input cointainer default style hidden for custom upload style -->
+          <div class="upload"  >  <!-- change class to error for error handling on photo upload -->
+          <picture class="before-upload" > </picture> <!-- custom upload for photo (change class to after-upload for after upload style)-->
+          <aside class="upload-instructions"><p>Drag and drop or click to upload </p><span class="remove-image">Remove image</span><span class="change-image">Change image</span></aside> <!-- container for instructions in the image upload box-->
+          </div> 
+          <small class="error-state-image" > File too large. Please upload a photo under 500KB</small> <!--error cointaner hidden by default-->
+          <small class="helper">Upload your photo (JPG or PNG, max size: 500KB)</small>
+        </div>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <!-- E-mail Address -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="example@email.com" class=".error">
+          <small class="error-state-mail">Please enter a valid address </small> <!--error cointaner hidden by default-->
+        </div>
+        <!-- Github Username -->
+        <div class="form-group">
+          <label for="github">GitHub Username</label>
+          <input type="text" id="github" name="github" required placeholder="@yourusername">
+        </div>
+        <!-- Submit button -->
+        <button type="submit" id="generate-ticket-btn">Generate My Ticket</button>
+      </form>
+      <picture class="bottom-line"></picture> <!-- bottom line-->
+      </div>
+    </section>
+
+    <!-- Ticket Preview Section (hidden by default) -->
+    <section id="ticket-preview-section"  style="display:none;">
+      <h2>Congrats, <span id="ticket-name">Joshua okorosa</span>! Your ticket is ready.</h2>
+      <p>We've emailed your ticket to <span id="ticket-email">weebdev@gmail.com</span> and will send updates in the run up to the event.</p>
+      <section id="ticket-background-image"> <!-- the blurry ticket bG image-->
+      <div class="ticket">
+        <picture id="ticket-logo"></picture>
+        <div class="Conf-details">
+        <h3>Coding Conf</h3>
+        <p>Jan 31, 2025 / Austin, TX</p>
+      </div>
+      <picture id="ticket-avatar"></picture>
+        <div class="ticket-details">
+         <span id="ticket-name-detail">Joshua okorosa</span>
+          <span id="ticket-github"> <img src="/assets/images/icon-github.svg" alt="" > <p id="ticket-github-username">Joshua oris okorosa</p> </span>
+        </div>
+        <div id="ticket-number">#01609</div>
+      </div>
+      </section>
+      <aside class="bottom-line-preview"></aside> <!-- bottom line-->
+    </section>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="https://x.com/the_lazyWeebDev">Joshua okorosa</a>.
+  </div>
+</body>
+<script src="/script.js"></script>
+</html>

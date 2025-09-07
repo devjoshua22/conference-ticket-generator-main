@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ticket Form — demo</title>
+  <style>
+    body { font-family: system-ui, Arial; background:#0d0221; color:#fff; padding:32px; }
+    .form-group { margin-bottom:18px; max-width:520px; }
+    label { display:block; margin-bottom:6px; font-weight:600; }
+    /* upload wrapper */
+    #upload { 
+      display:flex; align-items:center; gap:12px; padding:12px; border-radius:10px;
+      background:#12062d; border:2px dashed rgba(255,255,255,0.06); position:relative;
+    }
+    #upload input[type="file"] { cursor:pointer; }
+    /* default small helpers hidden by default if class 'helper' or 'error' used */
+    small { display:block; margin-top:8px; font-size:13px; color:rgba(255,255,255,0.6); }
+    small.error-state-image, small.error-state-mail { display:none; color:#ff4d4d; }
+    /* error styles */
+    .error { border-color:#ff4d4d !important; background: rgba(255,77,77,0.03); }
+    .error-border { box-shadow: 0 0 0 3px rgba(255,77,77,0.07) inset; border-radius:6px; border:1px solid #ff4d4d; }
+    input[type="email"], input[type="text"] { padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:transparent; color:#fff; width:100%; }
+    button { margin-top:14px; padding:12px 18px; background:#ff6b4a; border:none; border-radius:10px; cursor:pointer; color:#fff; }
+  </style>
+</head>
+<body>
+
+  <form id="ticket-form" novalidate>
+    <!-- UPLOAD -->
+    <div class="form-group">
+      <label for="avatar">Upload Avatar</label>
+      <div id="upload" class="upload">
+        <!-- put file input inside the wrapper so toggling wrapper affects input visually -->
+        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+        <div class="upload-instructions">
+          <p style="margin:0">Drag and drop or click to upload</p>
+        </div>
+      </div>
+
+      <!-- error message specifically for the avatar -->
+      <small class="error-state-image">File too large. Please upload a photo under 500KB.</small>
+      <small class="helper">Upload your photo (JPG or PNG, max size: 500KB)</small>
+    </div>
+
+    <!-- NAME -->
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" required>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="example@email.com">
+      <small class="error-state-mail">Please enter a valid email address.</small>
+    </div>
+
+    <!-- GITHUB -->
+    <div class="form-group">
+      <label for="github">GitHub Username</label>
+      <input type="text" id="github" name="github" required placeholder="@yourusername">
+    </div>
+
+    <button id="generate-ticket-btn" type="submit">Generate My Ticket</button>
+  </form>
+
+  <script>
+    // Wait until DOM is ready (safest)
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ---------- Avatar upload handling ----------
+      const avatarInput = document.getElementById('avatar');
+      const uploadDiv = document.getElementById('upload');             // matches id="upload"
+      const avatarErrorSmall = document.querySelector('.error-state-image');
+      const avatarHelperSmall = document.querySelector('.helper');
+
+      if (avatarInput && uploadDiv) {
+        avatarInput.addEventListener('change', () => {
+          const file = avatarInput.files[0];
+
+          // if file exists and is too large -> show error
+          if (file && file.size > 500 * 1024) {
+            uploadDiv.classList.add('error');            // toggles visual wrapper error
+            if (avatarErrorSmall) avatarErrorSmall.style.display = 'block';
+            if (avatarHelperSmall) avatarHelperSmall.style.display = 'none';
+            console.log('Avatar: file too large');
+          } else {
+            // valid file or user cleared selection -> clear error
+            uploadDiv.classList.remove('error');
+            if (avatarErrorSmall) avatarErrorSmall.style.display = 'none';
+            if (avatarHelperSmall) avatarHelperSmall.style.display = 'block';
+            console.log('Avatar: file valid or none selected');
+          }
+        });
+      }
+
+      // ---------- Email realtime validation ----------
+      const emailInput = document.getElementById('email');
+      const emailErrorSmall = document.querySelector('.error-state-mail');
+
+      if (emailInput) {
+        // run on every keystroke
+        emailInput.addEventListener('input', () => {
+          const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const value = emailInput.value.trim();
+
+          if (value && !pattern.test(value)) {
+            // invalid -> show error
+            emailInput.classList.add('error-border');
+            if (emailErrorSmall) emailErrorSmall.style.display = 'block';
+          } else {
+            // valid or empty -> hide error
+            emailInput.classList.remove('error-border');
+            if (emailErrorSmall) emailErrorSmall.style.display = 'none';
+          }
+        });
+      }
+
+      // ---------- Optional: final validation on form submit ----------
+      const form = document.getElementById('ticket-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Basic submit-time checks (name, email, file size)
+        let isValid = true;
+
+        const name = document.getElementById('fullName').value.trim();
+        const github = document.getElementById('github').value.trim();
+        const emailVal = emailInput.value.trim();
+
+        if (!name) { isValid = false; /* you can toggle a visual error here */ }
+        if (!github) { isValid = false; }
+
+        // email pattern
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+          isValid = false;
+          if (emailErrorSmall) emailErrorSmall.style.display = 'block';
+          emailInput.classList.add('error-border');
+        }
+
+        // file size check
+        if (avatarInput.files.length > 0) {
+          const f = avatarInput.files[0];
+          if (f.size > 500 * 1024) {
+            isValid = false;
+            uploadDiv.classList.add('error');
+            if (avatarErrorSmall) avatarErrorSmall.style.display = 'block';
+          }
+        }
+
+        if (isValid) {
+          alert('🎉 Form validated! (you can now submit via XHR or normal form submit)');
+          form.reset();
+          // reset visuals
+          uploadDiv.classList.remove('error');
+          if (avatarErrorSmall) avatarErrorSmall.style.display = 'none';
+          if (avatarHelperSmall) avatarHelperSmall.style.display = 'block';
+          if (emailErrorSmall) emailErrorSmall.style.display = 'none';
+          emailInput.classList.remove('error-border');
+        } else {
+          console.log('Form invalid — show messages for missing fields');
+        }
+      });
+
+    }); // DOMContentLoaded
+  </script>
+</body>
+</html>

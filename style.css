@@ -1,0 +1,729 @@
+@import url('./assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf'); /* import for font */
+html, body {
+  overflow-x: hidden;
+  
+}
+/* Mobile-first styles for Conference Ticket Generator */
+:root {
+  --neutral-0: hsl(0, 0%, 100%);
+  --neutral-300: hsl(252, 6%, 83%);
+  --neutral-500: hsl(245, 15%, 58%);
+  --neutral-700: hsl(245, 19%, 35%);
+  --neutral-900: hsl(248, 70%, 10%);
+  --orange-500: hsl(7, 88%, 67%);
+  --orange-700: hsl(7, 71%, 60%);
+  --font-family: 'Inconsolata', monospace;
+}
+
+body {
+  font-family: var(--font-family);
+  background: url(/assets/images/background-mobile.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: var(--neutral-900);
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  max-width: 100vw;
+}
+#ticket-form-section{
+  min-width: 100%;
+  margin-left: 0px;
+}
+#content{
+  height: 105vh;
+}
+/* top header styling - mobile optimized */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 0 3px 0;
+  width: 100%;
+  margin-top: -66px;
+}
+
+#logo-mark {
+  background: url(/assets/images/logo-mark.svg) no-repeat center center;
+  background-size: contain;
+  padding:19px ;
+  min-width: 35%;
+  margin-left: 10px;
+}
+
+header p {
+  color: var(--neutral-0);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  margin-left: -65px;
+  min-width: 45%;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 4px 15px 4px 4px;
+
+}
+/* pattern line for top  of screen */
+#top-line {
+  background: url(/assets/images/pattern-squiggly-line-top.svg) no-repeat center center;
+  background-size: contain;
+  padding:70px;
+  margin-left: -40px;
+}
+#top-invisible-line{
+  background: url(/assets/images/pattern-lines.svg) no-repeat center top;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 75vh;
+  z-index: 1;
+  pointer-events: none;
+}
+/* pattern line for bottom end of screen */
+.bottom-line{
+  background: url(/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg) no-repeat;
+  background-size: contain;
+  position: absolute;
+  padding: 160px;
+  max-height: 270px;
+  max-width: 330px;
+  margin: -119px 10px 10px -36px;
+}
+/* specific styling for bottom line in the ticket preview section */
+.bottom-line-preview{
+  background: url(/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg) no-repeat;
+  background-size: contain;
+  position: absolute;
+  padding: 160px;
+  max-height: 270px;
+  max-width: 330px;
+  margin: 9px 10px 10px -46px;
+  
+
+}
+/* top header styling ends here */
+#content{
+  margin-top: -50px;
+}
+main {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 16px 8px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--neutral-0);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--neutral-0);
+  margin-bottom: 16px;
+}
+
+
+/* Custom style for  User input field */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: none;
+  border-radius: 12px;
+  padding: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--neutral-0);
+}
+
+/* Custom placeholder color for all input fields */
+.form-group input::placeholder {
+  color: var(--neutral-300);
+  opacity: 1;
+}
+
+.form-group input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(130%);
+  border: 0.1px var(--neutral-300) solid;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--neutral-0);
+  padding: 10px 16px;
+  margin-top: 2px;
+  transition: box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  z-index: 1;
+}
+.form-group input:focus {
+  background: rgba(255,255,255,0.28);
+}
+/* end of  Custom style for  User input field */
+
+/* custom design for file upload STARTS */
+input[type="file"] {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  margin-top: -1px;
+  width: 100%;
+  padding: 52px 0px;
+  position: relative;
+  opacity: 0;
+  background: none;
+  border: none; 
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 1;
+  
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  cursor:pointer;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  padding: 10px 0px;
+  margin-top: -128px;
+  background:  rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(130%);
+  border: 2.6px var(--neutral-300) dashed;
+  border-radius: 12px;
+  color: var(--neutral-0);
+  cursor: pointer;
+}
+/* classes for changes in sucesseful image upload */
+.before-upload{
+  background: url(/assets/images/icon-upload.svg) no-repeat center center rgba(255,255,255,0.18);
+  background-size: 48px 48px;
+  position: relative;
+  display: inline-block;
+  margin: 20px 10px 0px 10px;
+  padding-bottom:0px ;
+  transform: translate(-10%, -10%);
+  border-radius:19%;
+  width: 58px;
+  min-height: 48px;
+  cursor: pointer;
+}
+.after-upload{
+  background: url(/assets/images/image-avatar.jpg) no-repeat center center rgba(255,255,255,0.18);
+  background-size: cover;
+  position: relative;
+  display: inline-block;
+  margin: 20px 10px 0px 10px;
+  padding-bottom:0px ;
+  transform: translate(-10%, -10%);
+  border-radius:19%;
+  width: 58px;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+/* this part of the code is responsible for the styling of the texts in the image-upload */
+.upload > aside span{
+  display: none;
+  margin-left: 25px;
+  background:  rgba(255,255,255,0.18);
+  padding:5px;
+  border-radius: calc(1.4*4px);
+  font-size: 13px;
+}
+
+.upload > aside > p {
+  margin: 0px 10px 0px 16px;
+  padding: 0px; 
+  cursor: pointer;
+  color: var(--neutral-300);
+}
+
+
+/* custom design for file upload ENDS */
+
+
+/* Hide default file upload button */
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+  display: none;
+}
+
+/* Hide default file selector button (Firefox, Edge, Chrome) */
+input[type="file"]::file-selector-button {
+  visibility: hidden;
+  display: none;
+}
+
+/* Remove browser default text from file input */
+input[type="file"]::-ms-value {
+  color: transparent;
+}
+input[type="file"]::-webkit-input-placeholder {
+  color: transparent;
+}
+input[type="file"]::placeholder {
+  color: transparent;
+}
+input[type="file"] {
+  color: transparent;
+  text-shadow: none;
+}
+/* error state styling  */
+ .error {
+  display: flex;
+  flex-direction: column;
+  cursor:pointer;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 110px;
+  padding: 10px 0px;
+  margin-top: -129px;
+  background:  rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(130%);
+  border: 2.6px red dashed;
+  border-radius: 12px;
+  color: var(--neutral-0);
+  cursor: pointer;
+  }
+  .error > aside span{
+  display: none;
+  margin-left: 20px;
+  background:  rgba(255,255,255,0.18);
+  padding:5px;
+  border-radius: calc(1.4*4px);
+  font-size: 13px;
+}
+
+.error > aside > p {
+  margin: 0px 10px 0px 16px;
+  padding: 0px; 
+  cursor: pointer;
+  color: var(--neutral-300);
+}
+
+
+    #ticket-form > div:nth-child(1) > small.error-state.image {
+      display: none; 
+      color: #ff4d4d;
+      font-size: 0.55rem;
+      margin-bottom: 12px;
+      /* hidden by default */
+    }
+    .error-state-mail{
+      color: #ff4d4d;
+      font-size: 0.55rem;
+      margin-bottom: 12px;
+    display: none;   /* hidden by default */
+    }
+    .error-state-image{
+      color: #ff4d4d;
+      font-size: 0.55rem;
+      margin-bottom: 12px;
+    display: none;   /* hidden by default */
+    }
+/* error state styling ends here */
+
+small {
+  /* display: none; */
+  font-size: 0.65rem;
+  color: var(--neutral-500);
+  cursor: default;
+}
+button[type="submit"], #back-btn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: hsl(7, 90%, 73%);
+  color: var(--neutral-900);
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+button[type="submit"]:hover, #back-btn:hover {
+  background: var(--orange-700); }
+
+/* #ticket-preview-section design start here */
+
+/* --- Ticket Preview Section Styling --- */
+
+#ticket-preview-section {
+  height: 568px;
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--neutral-0);
+  overflow: hidden;
+}
+
+#ticket-preview-section h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--neutral-0);
+}
+
+#ticket-preview-section p {
+  font-size: 0.95rem;
+  color: var(--neutral-300);
+  margin-bottom: 24px;
+}
+
+#ticket-preview-section span {
+  color: var(--neutral-0);
+  font-weight: 700;
+}
+
+/* Ticket card styling */
+#ticket-background-image{
+  backdrop-filter: blur(28px) saturate(130%); 
+  background: url(/assets/images/pattern-ticket.svg) no-repeat center center;
+  background-size:contain;
+  border-radius: 2px;
+  padding: 19px;
+  width: 300px;
+  height: 150px;
+}
+.ticket {
+  display: grid;
+  grid-template-columns: 60px 190px 40px; /* left, middle, right */
+  grid-template-rows: auto auto ;
+  position: relative;
+  align-items: center;
+  color: var(--neutral-0);
+  margin: 0px 0px 0px 0px ;
+
+  box-sizing: border-box;
+  
+}
+#ticket-name{
+  background: linear-gradient(90deg, var(--orange-500), white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;   /* make it pop */
+}
+
+.ticket h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--neutral-0);
+}
+
+.ticket > p {
+  font-size: 0.75rem;
+  color: var(--neutral-300);
+  margin-bottom: 16px;
+} 
+
+/* ticket details area */
+.ticket-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content:left;
+  gap: 0px;
+  padding: 0px;
+  margin-top: -10px;
+  margin-left: 0px;
+  font-size: 0.75rem;
+}
+
+
+
+
+
+/* Avatar on left spanning 2 rows */
+#ticket-avatar {
+  grid-column: 1;
+  /* grid-row: 2 / span 2; covers row 2 & 3 */
+  width: 38px;
+  height: 38px;
+  border-radius: calc(1.4*4px);
+  background: url(/assets/images/image-avatar.jpg) no-repeat center;
+  background-size: contain;
+  margin: -35px 0px 0px -10px ;
+}
+
+/* Logo at top of middle */
+#ticket-logo {
+  margin-top: -40px;
+  grid-column: 1;
+  justify-self: start;
+  width: 32px;
+  height: 32px;
+  background: url('/assets/images/logo-mark.svg') no-repeat center/contain;
+}
+
+/* Conf details below logo */
+#Conf-details {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Name */
+#ticket-name-detail {
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  grid-column: 2;
+  grid-row: 3;
+
+}
+
+/* GitHub */
+#ticket-github {
+  display: flex;
+  justify-content: start;
+  align-items: left;
+  flex-wrap: nowrap;
+  margin: -14px 0px 0px 10px ;
+  grid-column: 2;
+  grid-row: 4;
+}
+#ticket-github img{
+  margin-top: -7px;
+}
+#ticket-github p {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 100;
+}
+
+
+/* Ticket number on far right spanning all rows */
+#ticket-number {
+  grid-column: 4;
+  grid-row: 1/2;
+  font-weight: bold;
+  color: var(--neutral-300);
+  justify-self: center;
+   transform: rotate(90deg);
+  transform-origin: left top;
+  display: inline-block;
+  left: 310px;
+  top: 60px;
+}
+
+.attribution {
+  font-size: 16px;
+  text-align: center;
+  color: var(--neutral-500);
+  margin: 42px;
+}
+
+.attribution a {
+  color: var(--orange-500);
+}
+/*
+@media (min-width: 376px) {
+  main {
+    max-width: 375px;
+  }
+    Tablet & above 
+@media (min-width: 768px) {
+ 
+}
+
+ Desktop & above 
+@media (min-width: 1024px) {
+  body {
+    background: orange;
+    font-size: 20px;
+  }
+}
+} */
+/* Tablet view */
+@media (min-width: 760px) {
+  body {
+    background: url(/assets/images/background-tablet.png) no-repeat center center;
+    background-size: cover;
+  }
+
+  main {
+    max-width: 500px;   /* wider form */
+    margin: 0 auto;     /* center horizontally */
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 2rem;    /* larger heading */
+  }
+
+  p {
+    font-size: 1.1rem;  /* slightly bigger text */
+  }
+
+  form {
+    gap: 20px;
+  }
+ #ticket-preview-section{
+    height: 80vh;
+  }
+
+  /* Fix: keep decorative line inside viewport */
+  #top-invisible-line {
+    width: 100vw;       /* stop overflow */
+    height: 85vh;
+  }
+
+  /* Clean bottom squiggly line */
+  .bottom-line-preview {
+    padding: 240px;
+    background-size: contain; /* keep proportions */
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    margin: -240px 10px 10px -165px;
+
+  }
+  #ticket-background-image{
+    padding: 19px;
+    width: 380px;
+    height: 200px;
+  }
+  .ticket {
+    gap: 10px;
+    margin-left: 49px;
+    width: 360px;
+    height: 200px;
+  }
+  #ticket-name-detail {
+    font-size: 1.4rem;
+  }
+  #ticket-number{
+    font-size: 1.5rem;
+  }
+  .ticket h3{
+    font-size: 1.5rem;
+  }
+  .Conf-details{
+    margin-left: -50px;
+  }
+  .ticket-details{
+    margin-left: -30px;
+  }
+  #ticket-avatar {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  margin: -35px 0px 0px -40px ;
+}
+
+#ticket-logo {
+  margin-top: -10px;
+  margin-left: -40px;
+  grid-column: 1;
+  justify-self: start;
+  width: 46px;
+  height: 46px;
+  background: url('/assets/images/logo-mark.svg') no-repeat center/contain;
+}
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 14px;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 924px) {
+   body {
+    background: url(/assets/images/background-desktop.png) no-repeat center center;
+    background-size: cover;
+  }
+  main { 
+    max-width: 700px;       /* slightly larger form box */
+    margin: 0 auto;         /* keep centered */
+    padding: 40px;          /* generous spacing */
+    margin-top: 40px;
+  }
+
+#content{
+  margin-top: 60px;
+   height: 125vh;
+}
+#top-line {
+  position: absolute;
+  background-size: contain;
+  padding:170px;
+  margin: 224px 10px 10px 419px;
+}
+.bottom-line{
+  background: url(/assets/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat center center ;
+  background-size: contain;
+  height: 600px;
+  width: 400px;
+   margin: -394px 10px 10px -360px;
+}
+.bottom-line-preview{
+  background: url(/assets/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat center center ;
+   height: 300px;
+  width: 150px;
+  margin: -444px 10px 10px -400px;
+}
+#ticket-preview-section{
+    height: 80vh;
+  }
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+  header p {
+    font-size: 1.9rem;
+  }
+  p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  form{
+      margin-top: 60px;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;      /* bigger labels */
+  }
+
+  .form-group input {
+    font-size: 1rem;
+    padding: 14px 18px;
+  }
+
+  button[type="submit"] {
+    font-size: 1.1rem;
+    padding: 16px;
+    border-radius: 10px;
+    width: 100%;           /* make button span full width */
+  }
+}

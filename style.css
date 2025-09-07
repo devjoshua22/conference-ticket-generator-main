@@ -23,7 +23,7 @@ body {
   color: var(--neutral-900);
   margin: 0;
   padding: 0;
-  min-width: 320px;
+  min-width: 330px;
   max-width: 100vw;
 }
 #ticket-form-section{
@@ -137,6 +137,7 @@ form {
   background: none;
   border-radius: 12px;
   padding: 16px;
+  margin-left: -6px;
 }
 .form-group {
   display: flex;
@@ -193,7 +194,7 @@ input[type="file"] {
   border: none; 
   border-radius: 12px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
   
 }
 
@@ -227,6 +228,7 @@ input[type="file"] {
   width: 58px;
   min-height: 48px;
   cursor: pointer;
+  z-index: 0;
 }
 .after-upload{
   background: url(/assets/images/image-avatar.jpg) no-repeat center center rgba(255,255,255,0.18);
@@ -240,6 +242,7 @@ input[type="file"] {
   width: 58px;
   min-height: 48px;
   cursor: pointer;
+  z-index: 0;
 }
 
 /* this part of the code is responsible for the styling of the texts in the image-upload */
@@ -478,7 +481,7 @@ button[type="submit"]:hover, #back-btn:hover {
   justify-self: start;
   width: 32px;
   height: 32px;
-  background: url('/assets/images/logo-mark.svg') no-repeat center/contain;
+  background: url(/assets/images/logo-mark.svg) no-repeat center/contain;
 }
 
 /* Conf details below logo */
@@ -585,8 +588,8 @@ button[type="submit"]:hover, #back-btn:hover {
     font-size: 1.1rem;  /* slightly bigger text */
   }
 
-  form {
-    gap: 20px;
+  #ticket-form {
+    margin-top: -10px;
   }
  #ticket-preview-section{
     height: 80vh;
@@ -647,7 +650,7 @@ button[type="submit"]:hover, #back-btn:hover {
   justify-self: start;
   width: 46px;
   height: 46px;
-  background: url('/assets/images/logo-mark.svg') no-repeat center/contain;
+  background: url(/assets/images/logo-mark.svg) no-repeat center/contain;
 }
 
   button[type="submit"] {
@@ -668,9 +671,12 @@ button[type="submit"]:hover, #back-btn:hover {
     padding: 40px;          /* generous spacing */
     margin-top: 40px;
   }
-
+ input[type="file"] {
+  width: 96%;
+  min-height: 96px;
+ }
 #content{
-  margin-top: 60px;
+  margin-top: 30px;
    height: 125vh;
 }
 #top-line {
@@ -719,9 +725,54 @@ button[type="submit"]:hover, #back-btn:hover {
     font-size: 1rem;
     padding: 14px 18px;
   }
+  #ticket-background-image{
+    padding: 19px;
+    width: 430px;
+    height: 240px;
+  }
+  .ticket {
+    gap: 20px;
+    margin-top: 10px;
+    margin-left: 49px;
+    width: 360px;
+    height: 200px;
+  }
+  #ticket-name-detail {
+    font-size: 1.4rem;
+  }
+  #ticket-number{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 1.7rem;
+  }
+  .ticket h3{
+    font-size: 1.7rem;
+  }
+  .Conf-details{
+    margin-left: -50px;
+  }
+  .ticket-details{
+    margin-left: -30px;
+  }
+  #ticket-avatar {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  margin: -35px 0px 0px -40px ;
+}
+
+#ticket-logo {
+  margin-top: -10px;
+  margin-left: -40px;
+  grid-column: 1;
+  justify-self: start;
+  width: 46px;
+  height: 46px;
+  background: url(/assets/images/logo-mark.svg) no-repeat center/contain;
+}
 
   button[type="submit"] {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     padding: 16px;
     border-radius: 10px;
     width: 100%;           /* make button span full width */

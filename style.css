@@ -185,7 +185,8 @@ input[type="file"] {
   -webkit-appearance: none;
   outline: none;
   margin-top: -1px;
-  width: 100%;
+   width: 96%;
+  min-height: 96px;
   padding: 52px 0px;
   position: relative;
   opacity: 0;

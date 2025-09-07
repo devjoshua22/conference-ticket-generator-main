@@ -17,7 +17,7 @@ html, body {
 
 body {
   font-family: var(--font-family);
-  background: url(/assets/images/background-mobile.png) no-repeat;
+  background: url(assets/images/background-mobile.png) no-repeat;
   background-position: center;
   background-size: cover;
   color: var(--neutral-900);
@@ -44,7 +44,7 @@ header {
 }
 
 #logo-mark {
-  background: url(/assets/images/logo-mark.svg) no-repeat center center;
+  background: url(assets/images/logo-mark.svg) no-repeat center center;
   background-size: contain;
   padding:19px ;
   min-width: 35%;
@@ -65,13 +65,13 @@ header p {
 }
 /* pattern line for top  of screen */
 #top-line {
-  background: url(/assets/images/pattern-squiggly-line-top.svg) no-repeat center center;
+  background: url(assets/images/pattern-squiggly-line-top.svg) no-repeat center center;
   background-size: contain;
   padding:70px;
   margin-left: -40px;
 }
 #top-invisible-line{
-  background: url(/assets/images/pattern-lines.svg) no-repeat center top;
+  background: url(assets/images/pattern-lines.svg) no-repeat center top;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -83,7 +83,7 @@ header p {
 }
 /* pattern line for bottom end of screen */
 .bottom-line{
-  background: url(/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg) no-repeat;
+  background: url(assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg) no-repeat;
   background-size: contain;
   position: absolute;
   padding: 160px;
@@ -93,7 +93,7 @@ header p {
 }
 /* specific styling for bottom line in the ticket preview section */
 .bottom-line-preview{
-  background: url(/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg) no-repeat;
+  background: url(assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg) no-repeat;
   background-size: contain;
   position: absolute;
   padding: 160px;
@@ -217,7 +217,7 @@ input[type="file"] {
 }
 /* classes for changes in sucesseful image upload */
 .before-upload{
-  background: url(/assets/images/icon-upload.svg) no-repeat center center rgba(255,255,255,0.18);
+  background: url(assets/images/icon-upload.svg) no-repeat center center rgba(255,255,255,0.18);
   background-size: 48px 48px;
   position: relative;
   display: inline-block;
@@ -231,7 +231,7 @@ input[type="file"] {
   z-index: 0;
 }
 .after-upload{
-  background: url(/assets/images/image-avatar.jpg) no-repeat center center rgba(255,255,255,0.18);
+  background: url(assets/images/image-avatar.jpg) no-repeat center center rgba(255,255,255,0.18);
   background-size: cover;
   position: relative;
   display: inline-block;
@@ -406,7 +406,7 @@ button[type="submit"]:hover, #back-btn:hover {
 /* Ticket card styling */
 #ticket-background-image{
   backdrop-filter: blur(28px) saturate(130%); 
-  background: url(/assets/images/pattern-ticket.svg) no-repeat center center;
+  background: url(assets/images/pattern-ticket.svg) no-repeat center center;
   background-size:contain;
   border-radius: 2px;
   padding: 19px;
@@ -469,7 +469,7 @@ button[type="submit"]:hover, #back-btn:hover {
   width: 38px;
   height: 38px;
   border-radius: calc(1.4*4px);
-  background: url(/assets/images/image-avatar.jpg) no-repeat center;
+  background: url(assets/images/image-avatar.jpg) no-repeat center;
   background-size: contain;
   margin: -35px 0px 0px -10px ;
 }
@@ -481,7 +481,7 @@ button[type="submit"]:hover, #back-btn:hover {
   justify-self: start;
   width: 32px;
   height: 32px;
-  background: url(/assets/images/logo-mark.svg) no-repeat center/contain;
+  background: url(assets/images/logo-mark.svg) no-repeat center/contain;
 }
 
 /* Conf details below logo */
@@ -570,7 +570,7 @@ button[type="submit"]:hover, #back-btn:hover {
 /* Tablet view */
 @media (min-width: 760px) {
   body {
-    background: url(/assets/images/background-tablet.png) no-repeat center center;
+    background: url(assets/images/background-tablet.png) no-repeat center center;
     background-size: cover;
   }
 
@@ -650,7 +650,7 @@ button[type="submit"]:hover, #back-btn:hover {
   justify-self: start;
   width: 46px;
   height: 46px;
-  background: url(/assets/images/logo-mark.svg) no-repeat center/contain;
+  background: url(assets/images/logo-mark.svg) no-repeat center/contain;
 }
 
   button[type="submit"] {
@@ -662,7 +662,7 @@ button[type="submit"]:hover, #back-btn:hover {
 /* Desktop view */
 @media (min-width: 924px) {
    body {
-    background: url(/assets/images/background-desktop.png) no-repeat center center;
+    background: url(assets/images/background-desktop.png) no-repeat center center;
     background-size: cover;
   }
   main { 
@@ -686,14 +686,14 @@ button[type="submit"]:hover, #back-btn:hover {
   margin: 224px 10px 10px 419px;
 }
 .bottom-line{
-  background: url(/assets/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat center center ;
+  background: url(assets/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat center center ;
   background-size: contain;
   height: 600px;
   width: 400px;
    margin: -394px 10px 10px -360px;
 }
 .bottom-line-preview{
-  background: url(/assets/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat center center ;
+  background: url(assets/images/pattern-squiggly-line-bottom-desktop.svg) no-repeat center center ;
    height: 300px;
   width: 150px;
   margin: -444px 10px 10px -400px;
@@ -768,7 +768,7 @@ button[type="submit"]:hover, #back-btn:hover {
   justify-self: start;
   width: 46px;
   height: 46px;
-  background: url(/assets/images/logo-mark.svg) no-repeat center/contain;
+  background: url(assets/images/logo-mark.svg) no-repeat center/contain;
 }
 
   button[type="submit"] {
